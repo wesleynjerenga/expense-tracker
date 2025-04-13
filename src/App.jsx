@@ -16,6 +16,21 @@ function App() {
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setNewExpense({ ...newExpense, [name]: value });
+    // Add a new expense
+  const handleAddExpense = (e) => {
+    e.preventDefault();
+    if (!newExpense.name || !newExpense.description || !newExpense.amount) {
+      alert("Please fill out all fields before adding an expense.");
+      return;
+    }
+    if (newExpense.amount <= 0) {
+      alert("Amount must be a positive number.");
+      return;
+    }
+    setExpenses([...expenses, newExpense]);
+    setNewExpense({ name: "", description: "", amount: "" });
+  };
+
   };
  
 }
