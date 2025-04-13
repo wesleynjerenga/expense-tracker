@@ -13,6 +13,10 @@ function App() {
   React.useEffect(() => {
     localStorage.setItem("expenses", JSON.stringify(expenses));
   }, [expenses]);
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setNewExpense({ ...newExpense, [name]: value });
+  };
  
 }
 
